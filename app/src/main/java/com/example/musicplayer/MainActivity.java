@@ -1,5 +1,6 @@
 package com.example.musicplayer;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
@@ -16,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
     ListView lvSongs;
     ArrayList<Song> songs;
     SongAdapter adapter;
-    MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,30 +37,18 @@ public class MainActivity extends AppCompatActivity {
         lvSongs.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                playSong(position);
+                PlayerActivity.songList = songs;
+                Intent intent = new Intent(MainActivity.this, PlayerActivity.class);
+                intent.putExtra("songIndex", position);
+                startActivity(intent);
             }
         });
-    }
-    private void playSong(int position) {
-        // Neu dang phat bai cu thi dung lai
-        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
-            mediaPlayer.stop();
-            mediaPlayer.release();
-        }
-
-        // Tao mediaPlayer voi bai hat duoc chon
-        Song selectedSong = songs.get(position);
-        mediaPlayer = MediaPlayer.create(MainActivity.this, selectedSong.getResourceId());
-        mediaPlayer.start();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        // Don dep tai nguyen
-        if (mediaPlayer != null) {
-            mediaPlayer.release();
-            mediaPlayer = null;
-        }
     }
 }
+
+
