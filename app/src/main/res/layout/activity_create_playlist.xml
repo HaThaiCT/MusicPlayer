@@ -1,0 +1,23 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:padding="16dp"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/edtPlaylistName"
+        android:hint="Tên playlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ListView
+        android:id="@+id/lvSongsToAdd"
+        android:choiceMode="multipleChoice"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/btnSavePlaylist"
+        android:text="Lưu Playlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

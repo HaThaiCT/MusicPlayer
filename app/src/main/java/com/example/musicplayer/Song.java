@@ -1,6 +1,8 @@
 package com.example.musicplayer;
 
-public class Song {
+import java.io.Serializable;
+
+public class Song implements Serializable {
     private String title;
     private String artist;
     private int resourceId; // ID bài nhạc trong thư mục raw

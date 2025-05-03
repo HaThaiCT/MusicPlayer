@@ -5,15 +5,13 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/btnPlaylist"
+        android:id="@+id/btnCreatePlaylist"
+        android:text="Tạo Playlist Mới"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="🎵 Playlist của tôi"
-        android:layout_marginBottom="12dp"/>
+        android:layout_height="wrap_content" />
 
     <ListView
-        android:id="@+id/lvSongs"
+        android:id="@+id/lvPlaylists"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_height="match_parent" />
 </LinearLayout>

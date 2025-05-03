@@ -5,6 +5,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     ListView lvSongs;
-    ArrayList<Song> songs;
+    static ArrayList<Song> songs;
     SongAdapter adapter;
 
     @Override
@@ -42,6 +43,12 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("songIndex", position);
                 startActivity(intent);
             }
+        });
+
+        Button btnPlaylist = findViewById(R.id.btnPlaylist);
+        btnPlaylist.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, PlaylistActivity.class);
+            startActivity(intent);
         });
     }
 
